@@ -41,8 +41,7 @@ int main(void)
         std::cout << std::endl;
         lisa.executeForm(shrubbery);
     }
-    catch (const std::exception & e)
-    {
+    catch (const std::exception & e) {
         std::cout << YELLOW << "Caught exception: " << e.what() << RESET << std::endl;
     }
 }

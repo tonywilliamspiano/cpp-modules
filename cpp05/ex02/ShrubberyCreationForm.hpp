@@ -19,22 +19,17 @@
 # include "colors.hpp"
 
 class ShrubberyCreationForm : public AForm {
-    private:
-        void executeForm(const Bureaucrat& executor) const;
-        const std::string _target;
+private:
+	const std::string _target;
 
-    public:
-        ShrubberyCreationForm(std::string target);
-        ~ShrubberyCreationForm();
-        ShrubberyCreationForm(const ShrubberyCreationForm& oldInstance);
-        ShrubberyCreationForm& operator=(const ShrubberyCreationForm& oldInstance);
+public:
+	ShrubberyCreationForm(std::string target);
+	~ShrubberyCreationForm();
+	ShrubberyCreationForm(const ShrubberyCreationForm &oldInstance);
+	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &oldInstance);
 
-    void beSigned(const Bureaucrat& signer);
-
-    class GradeTooLowException : public std::exception {
-        public:
-            virtual const char * what() const throw();
-    };
+	virtual void execute(const Bureaucrat &executor) const;
+	void beSigned(const Bureaucrat &signer);
 };
 
 #endif

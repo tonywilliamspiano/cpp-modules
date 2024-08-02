@@ -25,7 +25,7 @@ class AForm {
         bool                _signed;
         const int           _gradeRequiredToSign;
         const int           _gradeRequiredToExecute;
-        void execute(const Bureaucrat& executor) const;
+
 
     public:
         AForm(std::string name, int signGrade, int execGrade);
@@ -33,12 +33,12 @@ class AForm {
         AForm(const AForm& oldInstance);
         AForm& operator=(const AForm& oldInstance);
 
-    std::string getName() const;
-    bool        getSignedStatus() const;
-    int         getSignGrade() const;
-    int         getExecuteGrade() const;
-    virtual void        beSigned(const Bureaucrat& signer) = 0;
-    virtual void executeForm(const Bureaucrat& executor) const = 0;
+	    std::string 	getName() const;
+    	bool        	getSignedStatus() const;
+    	int         	getSignGrade() const;
+    	int         	getExecuteGrade() const;
+    	virtual void	beSigned(const Bureaucrat& signer) = 0;
+		virtual void	execute(const Bureaucrat& executor) const = 0;
 
     class GradeTooLowException : public std::exception {
         public:
@@ -49,6 +49,8 @@ class AForm {
         public:
             virtual const char * what() const throw();
     };
+
+	void 				checkGrade(const Bureaucrat& executor) const;
 };
 
 std::ostream& operator<<(std::ostream& stream, const AForm& instance);

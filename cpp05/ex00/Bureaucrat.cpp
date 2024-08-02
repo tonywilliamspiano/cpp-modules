@@ -39,6 +39,11 @@ void    Bureaucrat::demote() {
 		throw Bureaucrat::GradeTooLowException();
 }
 
+void    Bureaucrat::signForm(Form & toSign) {
+	toSign.beSigned(*this);
+}
+
+
 std::string Bureaucrat::getName() const {
 	return _name;
 }

@@ -19,7 +19,6 @@
 
 class PresidentialPardonForm : public AForm {
     private:
-        void executeForm(const Bureaucrat& executor) const;
         const std::string _target;
 
     public:
@@ -28,12 +27,8 @@ class PresidentialPardonForm : public AForm {
         PresidentialPardonForm(const PresidentialPardonForm& oldInstance);
         PresidentialPardonForm& operator=(const PresidentialPardonForm& oldInstance);
 
-    void beSigned(const Bureaucrat& signer);
-
-    class GradeTooLowException : public std::exception {
-        public:
-            virtual const char * what() const throw();
-    };
+    	void 			beSigned(const Bureaucrat& signer);
+		virtual void	execute(const Bureaucrat& executor) const;
 };
 
 #endif

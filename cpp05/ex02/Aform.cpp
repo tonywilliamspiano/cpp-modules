@@ -59,7 +59,7 @@ int AForm::getExecuteGrade() const
     return (this->_gradeRequiredToExecute);
 }
 
-void AForm::execute(const Bureaucrat& executor) const
+void AForm::checkGrade(const Bureaucrat& executor) const
 {
     if (this->getSignedStatus() == false)
         throw AForm::NotSignedException();
@@ -67,19 +67,16 @@ void AForm::execute(const Bureaucrat& executor) const
         throw AForm::GradeTooLowException();
 }
 
-const char * AForm::GradeTooLowException::what() const throw()
-{
+const char * AForm::GradeTooLowException::what() const throw() {
     return ("Grade too low to sign form!");
 }
 
-const char * AForm::NotSignedException::what() const throw()
-{
+const char * AForm::NotSignedException::what() const throw() {
     return ("Cannot execute: Form not signed");
 }
 
 
-std::ostream& operator<<(std::ostream& stream, const AForm& instance)
-{
+std::ostream& operator<<(std::ostream& stream, const AForm& instance) {
     stream << "Form name: " << instance.getName() << std::endl;
     stream << "Grade to execute: " << instance.getExecuteGrade() << std::endl;
     stream << "Form name: " << instance.getSignGrade() << std::endl;

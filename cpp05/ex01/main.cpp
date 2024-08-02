@@ -14,8 +14,7 @@ int main(void)
 		lisa.signForm(jobApp);
 		std::cout << jobApp << std::endl;
 	}
-	catch (const std::exception & e)
-	{
+	catch (const std::exception & e) {
 		std::cout << "Caught exception: " << e.what() << std::endl;
 	}
 }

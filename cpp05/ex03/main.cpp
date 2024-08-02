@@ -11,9 +11,6 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
 #include <iostream>
 #include "colors.hpp"
 #include "Intern.hpp" 
@@ -21,19 +18,34 @@
 int main(void)
 {
     Intern  someRandomIntern;
-    AForm*   scf = NULL;
+    AForm*   shrubberyCreationForm;
+    AForm*   robotomyRequestForm;
+    AForm*   presidentialPardonForm;
     Bureaucrat charlie("Charlie", 4);
 
-    try
-    {
-        scf = someRandomIntern.makeForm("shrubbery creation", "Lancelot");
-        charlie.signForm(*scf);
-        charlie.executeForm(*scf);
+    try {
+        shrubberyCreationForm = someRandomIntern.makeForm("shrubbery creation", "Lancelot");
+        charlie.signForm(*shrubberyCreationForm);
+        charlie.executeForm(*shrubberyCreationForm);
+
+		std::cout << std::endl;
+
+		robotomyRequestForm = someRandomIntern.makeForm("robotomy request", "Bender");
+		charlie.signForm(*robotomyRequestForm);
+		charlie.executeForm(*robotomyRequestForm);
+
+		std::cout << std::endl;
+		someRandomIntern.makeForm("nonexistent form", "Nonexistent Person");
+
+		presidentialPardonForm = someRandomIntern.makeForm("presidential pardon", "Richard Nixon");
+		charlie.signForm(*presidentialPardonForm);
+		charlie.executeForm(*presidentialPardonForm);
     }
-    catch (const std::exception & e)
-    {
+    catch (const std::exception & e) {
         std::cout << YELLOW << "Caught exception: " << e.what() << RESET << std::endl;
     }
-    if (scf != NULL)
-        delete scf;
+    if (shrubberyCreationForm)
+        delete shrubberyCreationForm;
+	if (robotomyRequestForm)
+		delete robotomyRequestForm;
 }

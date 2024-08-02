@@ -16,34 +16,29 @@ Intern::Intern() {}
 
 Intern::~Intern() {}
 
-Intern::Intern(const Intern& oldInstance)
-{
+Intern::Intern(const Intern& oldInstance) {
     *this = oldInstance;
 }
 
-Intern& Intern::operator=(const Intern& oldInstance)
-{
+Intern& Intern::operator=(const Intern& oldInstance) {
     (void) oldInstance;
     return (*this);
 }
 
-AForm * Intern::_make_rrf(std::string target)
-{
+AForm * Intern::_make_rrf(std::string target) {
     return (new RobotomyRequestForm(target));
 }
 
-AForm * Intern::_make_scf(std::string target)
-{
+AForm * Intern::_make_scf(std::string target) {
     return (new ShrubberyCreationForm(target));
 }
     
-AForm * Intern::_make_ppf(std::string target)
-{
+AForm * Intern::_make_ppf(std::string target) {
     return (new PresidentialPardonForm(target));
 }
 
-AForm * Intern::makeForm(std::string type, std::string target)
-{
+// TODO - Understand how this passing of functions works so I can explain it.
+AForm * Intern::makeForm(std::string type, std::string target) {
     std::string formTypes[3] = {
         "shrubbery creation",
         "robotomy request",
@@ -55,18 +50,15 @@ AForm * Intern::makeForm(std::string type, std::string target)
 		&Intern::_make_ppf,
 	};
 
-    for (int i = 0; i < 3; i++)
-    {
-        if (type == formTypes[i])
-        {
-            std::cout << CYAN << "Intern makes " << GREEN << type << i << std::endl;
+    for (int i = 0; i < 3; i++) {
+        if (type == formTypes[i]) {
+            std::cout << CYAN << "Intern creates " << GREEN << type << std::endl;
             return ((this->*make_form[i])(target));
         }
     }
     throw Intern::formTypeNotFoundException();
 }
 
-const char * Intern::formTypeNotFoundException::what() const throw()
-{
+const char * Intern::formTypeNotFoundException::what() const throw() {
     return ("Form type not found!");
 }

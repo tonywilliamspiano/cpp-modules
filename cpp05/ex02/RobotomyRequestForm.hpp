@@ -21,7 +21,6 @@
 
 class RobotomyRequestForm : public AForm {
     private:
-        void executeForm(const Bureaucrat& executor) const;
         const std::string _target;
 
     public:
@@ -30,12 +29,8 @@ class RobotomyRequestForm : public AForm {
         RobotomyRequestForm(const RobotomyRequestForm& oldInstance);
         RobotomyRequestForm& operator=(const RobotomyRequestForm& oldInstance);
 
-    void beSigned(const Bureaucrat& signer);
-
-    class GradeTooLowException : public std::exception {
-        public:
-            virtual const char * what() const throw();
-    };
+		virtual void	execute(const Bureaucrat& executor) const;
+    	void 			beSigned(const Bureaucrat& signer);
 };
 
 #endif

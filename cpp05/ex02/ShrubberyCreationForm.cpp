@@ -50,11 +50,9 @@ void    ShrubberyCreationForm::beSigned(const Bureaucrat& signer)
         throw AForm::GradeTooLowException();
 }
 
-void ShrubberyCreationForm::executeForm(const Bureaucrat& executor) const
-{
-    std::ofstream outfile;
+void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
+	std::ofstream outfile;
 
-    this->execute(executor);
     outfile.open(this->_target + "_shrubbery");
     if (!outfile.is_open()) {
         std::cerr << "could not open file!" << std::endl;

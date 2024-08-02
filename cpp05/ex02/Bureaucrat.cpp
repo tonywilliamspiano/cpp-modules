@@ -81,7 +81,8 @@ void    Bureaucrat::signForm(AForm & toSign)
 
 void    Bureaucrat::executeForm(AForm const & toExecute)
 {
-        toExecute.executeForm(*this);
+        toExecute.checkGrade(*this);
+		toExecute.execute(*this);
         std::cout << CYAN << this->getName() << GREEN << " successfully executed " << MAGENTA << toExecute.getName() << RESET << std::endl;
 }
 
