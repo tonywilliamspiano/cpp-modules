@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 12:29:12 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/02 15:14:32 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/08/02 15:44:39 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void    ShrubberyCreationForm::beSigned(const Bureaucrat& signer)
 {
-    if (signer.getGrade() <= this->getSignGrade())
-    {
+    if (signer.getGrade() <= this->getSignGrade()) {
         this->_signed = true;
         std::cout << MAGENTA << "Shrubbery Creation Form" << GREEN << " signed by " << CYAN << signer.getName() << RESET << std::endl;
     }
@@ -52,6 +51,8 @@ void    ShrubberyCreationForm::beSigned(const Bureaucrat& signer)
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
 	std::ofstream outfile;
+
+	this->checkGradeAndSignedStatus(executor);
 
     outfile.open(this->_target + "_shrubbery");
     if (!outfile.is_open()) {

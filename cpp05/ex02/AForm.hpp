@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 12:16:12 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/02 15:12:48 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/08/02 15:46:18 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,23 @@ class AForm {
     	int         	getExecuteGrade() const;
     	virtual void	beSigned(const Bureaucrat& signer) = 0;
 		virtual void	execute(const Bureaucrat& executor) const = 0;
+		void 			checkGradeAndSignedStatus(const Bureaucrat& executor) const;
 
     class GradeTooLowException : public std::exception {
         public:
             virtual const char * what() const throw();
     };
-    
+
+	class GradeTooHighException : public std::exception {
+	public:
+		virtual const char * what() const throw();
+	};
+
     class NotSignedException : public std::exception {
         public:
             virtual const char * what() const throw();
     };
 
-	void 				checkGrade(const Bureaucrat& executor) const;
 };
 
 std::ostream& operator<<(std::ostream& stream, const AForm& instance);

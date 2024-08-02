@@ -47,6 +47,8 @@ void    RobotomyRequestForm::beSigned(const Bureaucrat& signer) {
 void RobotomyRequestForm::execute(const Bureaucrat &executor) const {
     std::srand(static_cast<unsigned int>(std::time(0)));
 
+	this->checkGradeAndSignedStatus(executor);
+
     int num = std::rand() % 2;
 
     std::cout << YELLOW << "* LOUD DRILLING NOISES *" << std::endl;

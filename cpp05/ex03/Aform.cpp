@@ -50,7 +50,7 @@ int AForm::getExecuteGrade() const {
     return (this->_gradeRequiredToExecute);
 }
 
-void AForm::execute(const Bureaucrat& executor) const {
+void AForm::checkGradeAndSignedStatus(const Bureaucrat& executor) const {
     if (this->getSignedStatus() == false)
         throw AForm::NotSignedException();
     if (executor.getGrade() > this->getExecuteGrade())

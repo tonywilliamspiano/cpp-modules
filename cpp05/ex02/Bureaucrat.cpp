@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 12:28:46 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/02 15:13:33 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/08/02 15:45:00 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,9 @@ void    Bureaucrat::signForm(AForm & toSign)
     toSign.beSigned(*this);    
 }
 
-void    Bureaucrat::executeForm(AForm const & toExecute)
-{
-        toExecute.checkGrade(*this);
-		toExecute.execute(*this);
-        std::cout << CYAN << this->getName() << GREEN << " successfully executed " << MAGENTA << toExecute.getName() << RESET << std::endl;
+void    Bureaucrat::executeForm(AForm const & toExecute) {
+	toExecute.execute(*this);
+	std::cout << CYAN << this->getName() << GREEN << " successfully executed " << MAGENTA << toExecute.getName() << RESET << std::endl;
 }
 
 const char * Bureaucrat::GradeTooHighException::what() const throw()
