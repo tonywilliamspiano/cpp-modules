@@ -17,6 +17,10 @@
 #include <iostream>
 # include "colors.hpp"
 
+// TODO - Double check formatting and style
+// 		- Double check with instructions from PDF
+// 		- Commit and push
+//		- Add 42 headers
 int main(void)
 {
     try 

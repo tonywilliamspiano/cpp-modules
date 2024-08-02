@@ -1,6 +1,10 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
+// TODO - Double check formatting and style
+// 		- Double check with instructions from PDF
+// 		- Commit and push
+//		- Add 42 headers
 int main(void)
 {
 	try {
@@ -13,8 +17,7 @@ int main(void)
 		std::cout << jobApp << std::endl;
 		lisa.signForm(jobApp);
 		std::cout << jobApp << std::endl;
-	}
-	catch (const std::exception & e) {
+	} catch (const std::exception & e) {
 		std::cout << "Caught exception: " << e.what() << std::endl;
 	}
 }

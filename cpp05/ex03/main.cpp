@@ -15,6 +15,10 @@
 #include "colors.hpp"
 #include "Intern.hpp" 
 
+// TODO - Add 42 headers
+//  	- Double check formatting and style
+// 		- Double check with instructions from PDF
+// 		- Commit and push
 int main(void)
 {
     Intern  someRandomIntern;

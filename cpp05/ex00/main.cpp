@@ -1,8 +1,11 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-int main(void)
-{
+// TODO - Double check formatting and style
+// 		- Double check with instructions from PDF
+// 		- Commit and push
+//		- Add 42 headers
+int main(void) {
 	try {
 		Bureaucrat charlie("Manfred", 2);
 
@@ -13,7 +16,6 @@ int main(void)
 		// Second promotion is impossible, so we expect an exception to be thrown
 		std::cout << charlie << std::endl;
 		charlie.promote();
-
 	}
 	catch (const std::exception & e) {
 		std::cout << "Caught exception: " << e.what() << std::endl;
