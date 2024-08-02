@@ -13,7 +13,7 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-// TODO - Double check with instructions from PDF
+// TODO - Add nice colors
 // 		- Commit and push
 int main(void)
 {

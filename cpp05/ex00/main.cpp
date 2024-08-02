@@ -13,6 +13,8 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+// TODO - add nice colors
+//		- add .o files to gitignore
 int main(void) {
 	try {
 		Bureaucrat charlie("Manfred", 2);
