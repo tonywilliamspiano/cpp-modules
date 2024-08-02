@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/24 13:02:54 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/02 15:16:08 by awilliam         ###   ########.fr       */
+/*   Created: 2023/07/24 12:21:47 by awilliam          #+#    #+#             */
+/*   Updated: 2024/08/02 15:14:26 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 
 class RobotomyRequestForm : public AForm {
     private:
-        void executeForm(const Bureaucrat& executor) const;
         const std::string _target;
 
     public:
@@ -30,12 +29,8 @@ class RobotomyRequestForm : public AForm {
         RobotomyRequestForm(const RobotomyRequestForm& oldInstance);
         RobotomyRequestForm& operator=(const RobotomyRequestForm& oldInstance);
 
-    void beSigned(const Bureaucrat& signer);
-
-    class GradeTooLowException : public std::exception {
-        public:
-            virtual const char * what() const throw();
-    };
+		virtual void	execute(const Bureaucrat& executor) const;
+    	void 			beSigned(const Bureaucrat& signer);
 };
 
 #endif

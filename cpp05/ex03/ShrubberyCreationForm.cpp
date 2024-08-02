@@ -5,29 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/24 13:02:54 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/02 15:16:13 by awilliam         ###   ########.fr       */
+/*   Created: 2023/07/24 12:29:12 by awilliam          #+#    #+#             */
+/*   Updated: 2024/08/02 15:44:39 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) 
-: AForm("shrubbery creation", 145, 137), _target(target) {
+: AForm("shrubbery creation", 145, 137), _target(target)
+{
     this->_signed = false;
 }
 
 
-ShrubberyCreationForm::~ShrubberyCreationForm() {
+ShrubberyCreationForm::~ShrubberyCreationForm()
+{
     // std::out << "ShrubberyCreationForm destructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& f)
-: AForm("shrubbery creation", 145, 137), _target(f._target) {
+: AForm("shrubbery creation", 145, 137), _target(f._target)
+{
     this->_signed = f.getSignedStatus();
 }
 
-ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& oldInstance) {
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& oldInstance)
+{
     if (this != &oldInstance)
     {
         this->_signed = oldInstance.getSignedStatus();
@@ -35,9 +39,9 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
     return (*this);
 }
 
-void    ShrubberyCreationForm::beSigned(const Bureaucrat& signer) {
-    if (signer.getGrade() <= this->getSignGrade())
-    {
+void    ShrubberyCreationForm::beSigned(const Bureaucrat& signer)
+{
+    if (signer.getGrade() <= this->getSignGrade()) {
         this->_signed = true;
         std::cout << MAGENTA << "Shrubbery Creation Form" << GREEN << " signed by " << CYAN << signer.getName() << RESET << std::endl;
     }
@@ -45,10 +49,11 @@ void    ShrubberyCreationForm::beSigned(const Bureaucrat& signer) {
         throw AForm::GradeTooLowException();
 }
 
-void ShrubberyCreationForm::executeForm(const Bureaucrat& executor) const {
-    std::ofstream outfile;
+void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
+	std::ofstream outfile;
 
-    this->execute(executor);
+	this->checkGradeAndSignedStatus(executor);
+
     outfile.open(this->_target + "_shrubbery");
     if (!outfile.is_open()) {
         std::cerr << "could not open file!" << std::endl;

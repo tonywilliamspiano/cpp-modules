@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/24 13:02:54 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/02 15:15:58 by awilliam         ###   ########.fr       */
+/*   Created: 2023/07/24 12:16:17 by awilliam          #+#    #+#             */
+/*   Updated: 2024/08/02 15:14:13 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 class PresidentialPardonForm : public AForm {
     private:
-        void executeForm(const Bureaucrat& executor) const;
         const std::string _target;
 
     public:
@@ -28,12 +27,8 @@ class PresidentialPardonForm : public AForm {
         PresidentialPardonForm(const PresidentialPardonForm& oldInstance);
         PresidentialPardonForm& operator=(const PresidentialPardonForm& oldInstance);
 
-    void beSigned(const Bureaucrat& signer);
-
-    class GradeTooLowException : public std::exception {
-        public:
-            virtual const char * what() const throw();
-    };
+    	void 			beSigned(const Bureaucrat& signer);
+		virtual void	execute(const Bureaucrat& executor) const;
 };
 
 #endif

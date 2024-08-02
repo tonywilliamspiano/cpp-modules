@@ -5,16 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/24 13:02:54 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/02 15:15:02 by awilliam         ###   ########.fr       */
+/*   Created: 2023/07/21 15:07:12 by awilliam          #+#    #+#             */
+/*   Updated: 2024/08/02 15:47:06 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm(std::string name, int signGrade, int execGrade)
+AForm::AForm(std::string name, int signGrade, int execGrade) 
 : _name(name), _gradeRequiredToSign(signGrade), _gradeRequiredToExecute(execGrade) {
     this->_signed = false;
+
+	if (signGrade < MAX_GRADE || execGrade < MAX_GRADE) {
+		throw AForm::GradeTooHighException();
+	}
+	if (signGrade > MIN_GRADE || execGrade > MIN_GRADE) {
+		throw AForm::GradeTooLowException();
+	}
 }
 
 
@@ -22,14 +29,14 @@ AForm::~AForm() {
     // std::out << "AForm destructor called" << std::endl;
 }
 
-AForm::AForm(const AForm& f) 
-: _name(f.getName()), _gradeRequiredToSign(f.getSignGrade()), _gradeRequiredToExecute(f.getExecuteGrade()) {
-    this->_signed = f.getSignedStatus();
+AForm::AForm(const AForm& rhs)
+: _name(rhs.getName()), _gradeRequiredToSign(rhs.getSignGrade()), _gradeRequiredToExecute(rhs.getExecuteGrade()) {
+    this->_signed = rhs.getSignedStatus();
 }
 
-AForm& AForm::operator=(const AForm& oldInstance) {
-    if (this != &oldInstance) {
-        this->_signed = oldInstance.getSignedStatus();
+AForm& AForm::operator=(const AForm& rhs) {
+    if (this != &rhs) {
+        this->_signed = rhs.getSignedStatus();
     }
     return (*this);
 }
@@ -58,7 +65,11 @@ void AForm::checkGradeAndSignedStatus(const Bureaucrat& executor) const {
 }
 
 const char * AForm::GradeTooLowException::what() const throw() {
-    return ("Grade too low to sign form!");
+    return ("Grade too low!");
+}
+
+const char * AForm::GradeTooHighException::what() const throw() {
+	return ("Grade too high!");
 }
 
 const char * AForm::NotSignedException::what() const throw() {
