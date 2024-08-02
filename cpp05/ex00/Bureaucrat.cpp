@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:50:00 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/02 14:55:44 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/08/02 15:18:40 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int Bureaucrat::getGrade() const {
 
 std::ostream& operator<<(std::ostream& stream, const Bureaucrat& instance) {
 	stream << instance.getName() << " is a bureacrat with grade: " << instance.getGrade();
-	return (stream);
+	return stream;
 }
 
 //EXCEPTIONS

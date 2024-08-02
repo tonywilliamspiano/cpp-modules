@@ -6,27 +6,32 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 19:16:44 by awilliam          #+#    #+#             */
-/*   Updated: 2024/07/22 17:06:38 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/08/02 15:34:44 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "Form.hpp"
 
 Form::Form(std::string name, int gradeToSign, int gradeToExecute)
 : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
 	this->_isSigned = false;
+
+	if (gradeToSign < MAX_GRADE || gradeToExecute < MAX_GRADE) {
+		throw Form::GradeTooHighException();
+	}
+	if (gradeToSign > MIN_GRADE || gradeToExecute > MIN_GRADE) {
+		throw Form::GradeTooLowException();
+	}
 }
 
-Form::Form(const Form& f)
-		: _name(f.getName()), _gradeToSign(f.getGradeToSign()), _gradeToExecute(f.getGradeToExecute()) {
-	this->_isSigned = f.getIsSigned();
+Form::Form(const Form& rhs)
+		: _name(rhs.getName()), _gradeToSign(rhs.getGradeToSign()), _gradeToExecute(rhs.getGradeToExecute()) {
+	this->_isSigned = rhs.getIsSigned();
 }
 
-Form& Form::operator=(const Form& oldInstance) {
-	if (this != &oldInstance) {
-		this->_isSigned = oldInstance.getIsSigned();
+Form& Form::operator=(const Form& rhs) {
+	if (this != &rhs) {
+		this->_isSigned = rhs.getIsSigned();
 	}
 	return (*this);
 }
@@ -39,9 +44,9 @@ void    Form::beSigned(const Bureaucrat& signer) {
 	if (signer.getGrade() <= this->getGradeToSign()) {
 		this->_isSigned = true;
 		std::cout << "Form " << this->getName() << " signed by " << signer.getName() << std::endl;
+	} else {
+		std::cout << signer.getName() << " could not sign Form " << this->getName() << " because their grade is too low" << std::endl;
 	}
-	else
-		throw Form::GradeTooLowException();
 }
 
 const std::string& Form::getName() const {
@@ -70,7 +75,7 @@ std::ostream& operator<<(std::ostream& stream, const Form& instance)
 	std::string signedStatus = instance.getIsSigned() ? "Yes :)" : "No :(";
 	stream << signedStatus;
 
-	return (stream);
+	return stream;
 }
 
 // Exceptions

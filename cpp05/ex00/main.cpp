@@ -6,14 +6,13 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:50:00 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/02 15:10:46 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/08/02 15:17:38 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-// TODO - Add 42 headers
 int main(void) {
 	try {
 		Bureaucrat charlie("Manfred", 2);

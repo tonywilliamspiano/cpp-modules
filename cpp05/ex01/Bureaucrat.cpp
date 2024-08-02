@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 19:11:45 by awilliam          #+#    #+#             */
-/*   Updated: 2024/07/22 16:56:03 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/08/02 15:18:30 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,13 @@ Bureaucrat::~Bureaucrat() {
 //	 std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other.getName()) {
-	this->_grade = other.getGrade();
+Bureaucrat::Bureaucrat(const Bureaucrat &rhs) : _name(rhs.getName()) {
+	this->_grade = rhs.getGrade();
 }
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& oldInstance) {
-	if (this != &oldInstance)
-	{
-		this->_grade = oldInstance.getGrade();
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs) {
+	if (this != &rhs) {
+		this->_grade = rhs.getGrade();
 	}
 	return (*this);
 }
@@ -66,7 +65,7 @@ int Bureaucrat::getGrade() const {
 
 std::ostream& operator<<(std::ostream& stream, const Bureaucrat& instance) {
 	stream << instance.getName() << " is a bureacrat with grade: " << instance.getGrade();
-	return (stream);
+	return stream;
 }
 
 //EXCEPTIONS
