@@ -17,6 +17,7 @@
 # include "AForm.hpp"
 # include <fstream>
 # include <cstdlib>
+# include <ctime>
 # include "colors.hpp"
 
 class RobotomyRequestForm : public AForm {

@@ -12,7 +12,7 @@
 
 NAME = bureaucrat
 
-SRC = Bureaucrat.cpp Main.cpp Form.cpp
+SRC = Bureaucrat.cpp main.cpp Form.cpp
 OBJ = $(SRC:.cpp=.o)
 
 FLAGS = -Wall -Wextra -Werror -std=c++98

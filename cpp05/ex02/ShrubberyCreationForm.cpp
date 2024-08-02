@@ -54,7 +54,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
 
 	this->checkGradeAndSignedStatus(executor);
 
-    outfile.open(this->_target + "_shrubbery");
+    outfile.open((this->_target + "_shrubbery").c_str());
     if (!outfile.is_open()) {
         std::cerr << "could not open file!" << std::endl;
     }

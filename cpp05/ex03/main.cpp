@@ -48,8 +48,11 @@ int main(void) {
     }
 
 	// TODO - Remember how to check for memory leaks and check out how to do this on Linux
-    if (shrubberyCreationForm)
+    if (shrubberyCreationForm) {
         delete shrubberyCreationForm;
-	if (robotomyRequestForm)
+    }
+        
+	if (robotomyRequestForm) {
 		delete robotomyRequestForm;
+    }
 }
