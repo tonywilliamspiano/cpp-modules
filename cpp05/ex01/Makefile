@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: awilliam <awilliam@student.42wolfsburg.    +#+  +:+       +#+         #
+#    By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/07/10 14:07:05 by awilliam          #+#    #+#              #
-#    Updated: 2023/07/10 14:07:06 by awilliam         ###   ########.fr        #
+#    Created: 2024/07/19 18:46:46 by awilliam          #+#    #+#              #
+#    Updated: 2024/08/02 15:12:40 by awilliam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

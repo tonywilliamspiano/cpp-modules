@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAForm.cpp                                          :+:      :+:    :+:   */
+/*   Aform.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/10 14:08:55 by awilliam          #+#    #+#             */
-/*   Updated: 2023/07/21 09:39:00 by tony             ###   ########.fr       */
+/*   Created: 2023/07/24 13:02:54 by awilliam          #+#    #+#             */
+/*   Updated: 2024/08/02 15:15:02 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm(std::string name, int signGrade, int execGrade) 
+AForm::AForm(std::string name, int signGrade, int execGrade)
 : _name(name), _gradeRequiredToSign(signGrade), _gradeRequiredToExecute(execGrade) {
     this->_signed = false;
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: awilliam <awilliam@student.42wolfsburg.    +#+  +:+       +#+         #
+#    By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/07/10 14:07:05 by awilliam          #+#    #+#              #
-#    Updated: 2023/07/10 14:07:06 by awilliam         ###   ########.fr        #
+#    Created: 2024/08/02 15:11:31 by awilliam          #+#    #+#              #
+#    Updated: 2024/08/02 15:11:34 by awilliam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ $(NAME): $(OBJ)
 	@echo "\033[0;32mDONE\n"
 
 
-clean: 
+clean:
 	@echo "\033[1;36mCleaning object files..."
 	@rm -f $(OBJ)
 	@echo "\033[0;32mDONE\n"

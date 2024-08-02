@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/17 14:50:00 by awilliam          #+#    #+#             */
+/*   Updated: 2024/08/02 15:10:46 by awilliam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "Bureaucrat.hpp"
 
@@ -40,12 +52,14 @@ int main(void) {
 	}
 
 	try {
+		// Instantiating a Bureaucrat with a grade higher than 1 should throw an exception!
 		Bureaucrat presidentOfTheUniverse("Mr. President", 0);
 	} catch (const std::exception & e) {
 		std::cout << "Caught exception: " << e.what() << std::endl;
 	}
 
 	try {
+		// Instantiating a Bureaucrat with a grade lower than 0 should throw an exception!
 		Bureaucrat presidentOfTheUniverse("Stephen the Intern", 151);
 	} catch (const std::exception & e) {
 		std::cout << "Caught exception: " << e.what() << std::endl;
