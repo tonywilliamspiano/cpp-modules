@@ -10,15 +10,14 @@
 
 class Bureaucrat {
 private:
-	std::string _name;
-	int 		_grade;
+	const std::string	_name;
+	int 				_grade;
 
 public:
-
 	Bureaucrat(std::string name, int grade);
-	Bureaucrat(const Bureaucrat &other);
+	Bureaucrat(const Bureaucrat &rhs);
+	Bureaucrat& operator=(const Bureaucrat& rhs);
 	~Bureaucrat();
-	Bureaucrat& operator=(const Bureaucrat& oldInstance);
 
 	std::string	getName() const;
 	int 		getGrade() const;
