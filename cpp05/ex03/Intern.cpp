@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 18:33:12 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/02 15:15:29 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/08/02 19:09:10 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ Intern::Intern() {}
 
 Intern::~Intern() {}
 
-Intern::Intern(const Intern& oldInstance) {
-    *this = oldInstance;
+Intern::Intern(const Intern& rhs) {
+    *this = rhs;
 }
 
-Intern& Intern::operator=(const Intern& oldInstance) {
-    (void) oldInstance;
+Intern& Intern::operator=(const Intern& rhs) {
+    (void) rhs;
     return (*this);
 }
 
@@ -37,26 +37,21 @@ AForm * Intern::_make_ppf(std::string target) {
     return (new PresidentialPardonForm(target));
 }
 
-// TODO - Understand how this passing of functions works so I can explain it.
 AForm * Intern::makeForm(std::string type, std::string target) {
-    std::string formTypes[3] = {
-        "shrubbery creation",
-        "robotomy request",
-        "presidential pardon"
-    };
-    AForm	*(Intern::*make_form[3])(std::string target) = {
-		&Intern::_make_scf,
-		&Intern::_make_rrf,
-		&Intern::_make_ppf,
-	};
+	AForm * form;
 
-    for (int i = 0; i < 3; i++) {
-        if (type == formTypes[i]) {
-            std::cout << CYAN << "Intern creates " << GREEN << type << std::endl;
-            return ((this->*make_form[i])(target));
-        }
-    }
-    throw Intern::formTypeNotFoundException();
+	if (type == "shrubbery creation")
+		form = _make_scf(target);
+	else if (type == "robotomy request")
+		form = _make_rrf(target);
+	else if (type == "presidential pardon")
+		form = _make_ppf(target);
+	else
+		throw Intern::formTypeNotFoundException();
+
+	std::cout << CYAN << "Intern creates " << GREEN << type << std::endl;
+
+	return form;
 }
 
 const char * Intern::formTypeNotFoundException::what() const throw() {

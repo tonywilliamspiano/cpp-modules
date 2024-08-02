@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 12:16:06 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/02 15:13:40 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/08/02 18:57:00 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ class Bureaucrat {
     public:
         Bureaucrat(std::string name, int grade);
         ~Bureaucrat();
-        Bureaucrat(const Bureaucrat& oldInstance);
-        Bureaucrat& operator=(const Bureaucrat& oldInstance);
+        Bureaucrat(const Bureaucrat& rhs);
+        Bureaucrat& operator=(const Bureaucrat& rhs);
 
     std::string getName() const;
     int         getGrade() const;

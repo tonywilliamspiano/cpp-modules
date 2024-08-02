@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 18:33:19 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/02 16:32:46 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/08/02 18:57:44 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int main(void) {
         std::cout << YELLOW << "Caught exception: " << e.what() << RESET << std::endl;
     }
 
-	// TODO - Remember how to check for memory leaks and check out how to do this on Linux
     if (shrubberyCreationForm) {
         delete shrubberyCreationForm;
     }

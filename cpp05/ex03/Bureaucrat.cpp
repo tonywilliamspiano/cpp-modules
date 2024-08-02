@@ -24,14 +24,14 @@ Bureaucrat::~Bureaucrat() {
     // std::out << "Bureaucrat destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& oldInstance) : _name(oldInstance.getName()) {
-    this->_grade = oldInstance.getGrade();
+Bureaucrat::Bureaucrat(const Bureaucrat& rhs) : _name(rhs.getName()) {
+    this->_grade = rhs.getGrade();
 }
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& oldInstance) {
-    if (this != &oldInstance)
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs) {
+    if (this != &rhs)
     {
-        this->_grade = oldInstance.getGrade();
+        this->_grade = rhs.getGrade();
     }
     return (*this);
 }
