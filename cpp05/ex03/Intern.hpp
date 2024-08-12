@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 18:20:48 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/02 19:04:12 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/08/12 17:16:29 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,22 @@
 class AForm;
 
 class Intern {
-    private:
-        AForm * _make_rrf(std::string target);
-        AForm * _make_scf(std::string target);
-        AForm * _make_ppf(std::string target);
+private:
+    AForm *_make_rrf(std::string target);
+    AForm *_make_scf(std::string target);
+    AForm *_make_ppf(std::string target);
 
-    public:
-        Intern();
-        ~Intern();
-        Intern(const Intern& rhs);
-        Intern& operator=(const Intern& rhs);
+public:
+    Intern();
+    Intern(const Intern &rhs);
+    Intern &operator=(const Intern &rhs);
+    ~Intern();
 
-        AForm * makeForm(std::string type, std::string target);
+    AForm *makeForm(std::string type, std::string target);
 
     class formTypeNotFoundException : public std::exception {
-        public:
-            virtual const char * what() const throw();
+    public:
+        virtual const char *what() const throw();
     };
 };
 
