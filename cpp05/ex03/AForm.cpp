@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 15:07:12 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/12 17:05:16 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/08/12 17:14:35 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ std::ostream &operator<<(std::ostream &stream, const AForm &instance) {
     stream << "Form name: " << instance.getName() << std::endl;
     stream << "Grade to sign: " << instance.getSignGrade() << std::endl;
     stream << "Grade to execute: " << instance.getExecuteGrade() << std::endl;
-    stream << "Is the form signed? " << (instance.getIsSigned() ? "Yes :)" : "No :(") << std::endl;
+    stream << "Is the form signed? " << (instance.getSignedStatus() ? "Yes :)" : "No :(") << std::endl;
 
     return stream;
 }

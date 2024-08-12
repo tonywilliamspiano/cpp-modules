@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 12:28:46 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/12 17:03:02 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/08/12 17:14:09 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void Bureaucrat::demote() {
         throw Bureaucrat::GradeTooLowException();
 }
 
-void Bureaucrat::signForm(Form &toSign) {
+void Bureaucrat::signForm(AForm &toSign) {
     toSign.beSigned(*this);
 }
 

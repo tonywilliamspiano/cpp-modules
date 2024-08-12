@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 12:16:17 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/02 15:14:13 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/08/12 17:10:03 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@
 # include "colors.hpp"
 
 class PresidentialPardonForm : public AForm {
-    private:
-        const std::string _target;
+private:
+    const std::string _target;
 
-    public:
-        PresidentialPardonForm(std::string target);
-        ~PresidentialPardonForm();
-        PresidentialPardonForm(const PresidentialPardonForm& oldInstance);
-        PresidentialPardonForm& operator=(const PresidentialPardonForm& oldInstance);
+public:
+    PresidentialPardonForm(std::string target);
+    PresidentialPardonForm(const PresidentialPardonForm &oldInstance);
+    PresidentialPardonForm &operator=(const PresidentialPardonForm &oldInstance);
+    ~PresidentialPardonForm();
 
-    	void 			beSigned(const Bureaucrat& signer);
-		virtual void	execute(const Bureaucrat& executor) const;
+    void beSigned(const Bureaucrat &signer);
+    virtual void execute(const Bureaucrat &executor) const;
 };
 
 #endif
