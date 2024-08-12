@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:50:00 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/02 14:59:15 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/08/12 17:02:26 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,31 +22,31 @@
 
 class Bureaucrat {
 private:
-	const std::string	_name;
-	int 				_grade;
+    const std::string _name;
+    int _grade;
 
 public:
-	Bureaucrat(std::string name, int grade);
-	Bureaucrat(const Bureaucrat &rhs);
-	Bureaucrat& operator=(const Bureaucrat& rhs);
-	~Bureaucrat();
+    Bureaucrat(std::string name, int grade);
+    Bureaucrat(const Bureaucrat &rhs);
+    Bureaucrat &operator=(const Bureaucrat &rhs);
+    ~Bureaucrat();
 
-	std::string	getName() const;
-	int 		getGrade() const;
-	void        promote();
-	void        demote();
+    std::string getName() const;
+    int getGrade() const;
+    void promote();
+    void demote();
 
-	class GradeTooHighException : public std::exception {
-	public:
-		virtual const char* what() const throw();
-	};
+    class GradeTooHighException : public std::exception {
+    public:
+        virtual const char *what() const throw();
+    };
 
-	class GradeTooLowException : public std::exception {
-	public:
-		virtual const char* what() const throw();
-	};
+    class GradeTooLowException : public std::exception {
+    public:
+        virtual const char *what() const throw();
+    };
 };
 
-std::ostream& operator<<(std::ostream& stream, const Bureaucrat& instance);
+std::ostream &operator<<(std::ostream &stream, const Bureaucrat &instance);
 
 #endif

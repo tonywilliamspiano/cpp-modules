@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 12:16:06 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/02 15:13:40 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/08/12 17:04:05 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,34 +24,35 @@
 class AForm;
 
 class Bureaucrat {
-    private:
-        const std::string   _name;
-        int                 _grade;
+private:
+    const std::string _name;
+    int _grade;
 
-    public:
-        Bureaucrat(std::string name, int grade);
-        ~Bureaucrat();
-        Bureaucrat(const Bureaucrat& oldInstance);
-        Bureaucrat& operator=(const Bureaucrat& oldInstance);
+public:
+    Bureaucrat(std::string name, int grade);
+    ~Bureaucrat();
+    Bureaucrat(const Bureaucrat &oldInstance);
+    Bureaucrat &operator=(const Bureaucrat &oldInstance);
 
     std::string getName() const;
-    int         getGrade() const;
-    void        promote();
-    void        demote();
-    void        signForm(AForm & toSign);
-    void        executeForm(AForm const & toExecute);
+    int getGrade() const;
+    void promote();
+    void demote();
+
+    void signForm(AForm &toSign);
+    void executeForm(AForm const &toExecute);
 
     class GradeTooHighException : public std::exception {
-        public:
-            virtual const char * what() const throw();
+    public:
+        virtual const char *what() const throw();
     };
-    
+
     class GradeTooLowException : public std::exception {
-        public:
-            virtual const char * what() const throw();
+    public:
+        virtual const char *what() const throw();
     };
 };
 
-std::ostream& operator<<(std::ostream& stream, const Bureaucrat& instance);
+std::ostream &operator<<(std::ostream &stream, const Bureaucrat &instance);
 
 #endif

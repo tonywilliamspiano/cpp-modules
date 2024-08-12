@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 12:28:46 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/02 16:32:22 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/08/12 17:01:10 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,21 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
         throw Bureaucrat::GradeTooLowException();
 }
 
-
 Bureaucrat::~Bureaucrat() {
-    // std::out << "Bureaucrat destructor called" << std::endl;
+//	 std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& rhs) : _name(rhs.getName()) {
+Bureaucrat::Bureaucrat(const Bureaucrat &rhs) : _name(rhs.getName()) {
     this->_grade = rhs.getGrade();
 }
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs) {
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
     if (this != &rhs)
-    {
         this->_grade = rhs.getGrade();
-    }
-    return (*this);
+    return *this;
 }
 
-void    Bureaucrat::promote() {
+void Bureaucrat::promote() {
     std::cout << this->getName() << " is receiving a promotion :)" << std::endl;
     if (this->_grade > MAX_GRADE)
         this->_grade--;
@@ -44,7 +41,7 @@ void    Bureaucrat::promote() {
         throw Bureaucrat::GradeTooHighException();
 }
 
-void    Bureaucrat::demote() {
+void Bureaucrat::demote() {
     std::cout << this->getName() << " is receiving a demotion :(" << std::endl;
     if (this->_grade < MIN_GRADE)
         this->_grade++;
@@ -52,32 +49,35 @@ void    Bureaucrat::demote() {
         throw Bureaucrat::GradeTooLowException();
 }
 
+void Bureaucrat::signForm(Form &toSign) {
+    toSign.beSigned(*this);
+}
+
 std::string Bureaucrat::getName() const {
-    return (this->_name);
+    return _name;
 }
 
 int Bureaucrat::getGrade() const {
-    return (this->_grade);
+    return _grade;
 }
 
-std::ostream& operator<<(std::ostream& stream, const Bureaucrat& instance) {
-    stream << instance.getName() << " is a bureacrat with grade: " << instance.getGrade();
-    return (stream);
+std::ostream &operator<<(std::ostream &stream, const Bureaucrat &instance) {
+    stream << instance.getName() << " is a bureaucrat with grade: " << instance.getGrade();
+    return stream;
 }
 
-void    Bureaucrat::signForm(AForm & toSign) {
-    toSign.beSigned(*this);    
+//EXCEPTIONS
+
+void Bureaucrat::executeForm(AForm const &toExecute) {
+    toExecute.execute(*this);
+    std::cout << CYAN << this->getName() << GREEN << " successfully executed " << MAGENTA << toExecute.getName()
+              << RESET << std::endl;
 }
 
-void    Bureaucrat::executeForm(AForm const & toExecute) {
-	toExecute.execute(*this);
-	std::cout << CYAN << this->getName() << GREEN << " successfully executed " << MAGENTA << toExecute.getName() << RESET << std::endl;
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
+    return "Grade too high!";
 }
 
-const char * Bureaucrat::GradeTooHighException::what() const throw() {
-    return ("Grade too high!");
-}
-
-const char * Bureaucrat::GradeTooLowException::what() const throw() {
-    return ("Grade too low!");
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
+    return "Grade too low!";
 }
