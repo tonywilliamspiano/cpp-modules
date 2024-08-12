@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 15:07:12 by awilliam          #+#    #+#             */
-/*   Updated: 2024/08/02 15:47:06 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/08/12 16:50:45 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,9 @@ const char * AForm::NotSignedException::what() const throw() {
 
 std::ostream& operator<<(std::ostream& stream, const AForm& instance) {
     stream << "Form name: " << instance.getName() << std::endl;
+    stream << "Grade to sign: " << instance.getSignGrade() << std::endl;
     stream << "Grade to execute: " << instance.getExecuteGrade() << std::endl;
-    stream << "Form name: " << instance.getSignGrade() << std::endl;
-    stream << "Is the form signed? ";
-    if (instance.getSignedStatus())
-        stream << "Yes :)";
-    else
-        stream << "No :(";
-    return (stream);
+	stream << "Is the form signed? " << (instance.getIsSigned() ? "Yes :)" : "No :(") << std::endl;
+
+	return stream;
 }
