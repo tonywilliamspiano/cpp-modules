@@ -6,14 +6,17 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 19:06:05 by awilliam          #+#    #+#             */
-/*   Updated: 2024/10/02 11:41:55 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:51:02 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
+// TODO - Test rigorously
+//      - Test against subject
 
 #include "ScalarConverter.hpp"
 #include <iostream>
 #include <iomanip>
-#include <sstream>
 #include <limits>
 #include <cmath> // For std::fabs
 
