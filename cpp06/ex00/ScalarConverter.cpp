@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/24 19:06:05 by awilliam          #+#    #+#             */
+/*   Updated: 2024/10/02 11:41:55 by awilliam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScalarConverter.hpp"
 #include <iostream>
 #include <iomanip>
@@ -7,22 +19,21 @@
 
 ScalarConverter::ScalarConverter() {}
 
-ScalarConverter::ScalarConverter(const ScalarConverter& other) {
+ScalarConverter::ScalarConverter(const ScalarConverter &other) {
     *this = other;
 }
 
 ScalarConverter::~ScalarConverter() {}
 
-ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other) {
-    if (this == &other) 
-    {
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other) {
+    if (this == &other) {
         return *this;
     }
     return *this;
 }
 
-void ScalarConverter::convert(const std::string& input) {
-    double      value;
+void ScalarConverter::convert(const std::string &input) {
+    double value;
     std::string type;
 
     type = this->getType(input, &value);
@@ -30,22 +41,19 @@ void ScalarConverter::convert(const std::string& input) {
         std::cout << std::fixed << std::setprecision(1);
     else if (type == "pseudo-literal")
         value = convertPseudo(input);
-    else if (type == "not found")
-    {
+    else if (type == "not found") {
         std::cout << "Type not recognized" << std::endl;
-        return ;
+        return;
     }
     printValues(type, value);
 }
 
-std::string ScalarConverter::getType(const std::string& input, double *value)
-{
+std::string ScalarConverter::getType(const std::string &input, double *value) {
     if (this->isPseudoLiteral(input))
         return ("pseudo-literal");
     if (this->isInteger(input, value))
         return ("int");
-    if (input.length() == 1 && isDisplayableChar(input[0]))
-    {
+    if (input.length() == 1 && isDisplayableChar(input[0])) {
         *value = input[0];
         return ("int");
     }
@@ -56,21 +64,19 @@ std::string ScalarConverter::getType(const std::string& input, double *value)
     return ("not found");
 }
 
-void ScalarConverter::printValues(std::string type, double value)
-{
+void ScalarConverter::printValues(std::string type, double value) {
 
-    if (type == "pseudo-literal")
-    {
+    if (type == "pseudo-literal") {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
         std::cout << "double: " << value << std::endl;
-        return ;
+        return;
     }
 
     if (!isDisplayableChar(value))
         std::cout << "char: Non displayable" << std::endl;
-    else    
+    else
         std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
     if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())
         std::cout << "int: out of range" << std::endl;
@@ -81,11 +87,9 @@ void ScalarConverter::printValues(std::string type, double value)
     else
         std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
     std::cout << "double: " << value << std::endl;
-
 }
 
-double ScalarConverter::convertPseudo(const std::string &input)
-{
+double ScalarConverter::convertPseudo(const std::string &input) {
     if (input == "nan" || input == "nanf")
         return (std::numeric_limits<double>::quiet_NaN());
     if (input == "-inf" || input == "-inff")
@@ -96,39 +100,34 @@ double ScalarConverter::convertPseudo(const std::string &input)
 }
 
 // TYPE CHECKERS
-bool ScalarConverter::isInteger(const std::string &input, double *value)
-{
-    char    *endptr;
+bool ScalarConverter::isInteger(const std::string &input, double *value) {
+    char *endptr;
     long int num;
-    
+
     if (input.length() > 11)
         return false;
     num = strtol(input.c_str(), &endptr, 10);
 
     if (*endptr || num < std::numeric_limits<int>::min() || num > std::numeric_limits<int>::max())
         return false;
-    else
-    {
+    else {
         *value = num;
         return true;
     }
 }
 
-bool ScalarConverter::isDouble(const std::string &input, double *value)
-{
-    char    *endptr;
-    double  num;
-    int     precision;
-    
+bool ScalarConverter::isDouble(const std::string &input, double *value) {
+    char *endptr;
+    double num;
+    int precision;
+
     num = strtod(input.c_str(), &endptr);
 
     if (*endptr || num < std::numeric_limits<double>::min() || num > std::numeric_limits<double>::max())
         return false;
-    else
-    {
+    else {
         *value = num;
-        if (input.find('.') < input.length() && input.find('.') < 10)
-        {
+        if (input.find('.') < input.length() && input.find('.') < 10) {
             precision = input.length() - input.find('.') - 1;
             if (precision > 16)
                 precision = 16;
@@ -138,20 +137,18 @@ bool ScalarConverter::isDouble(const std::string &input, double *value)
     }
 }
 
-bool ScalarConverter::isFloat(const std::string &input, double *value)
-{
-    char    *endptr;
-    float   num;
-    int     precision;
-    
+bool ScalarConverter::isFloat(const std::string &input, double *value) {
+    char *endptr;
+    float num;
+    int precision;
+
     num = strtod(input.c_str(), &endptr);
-    if (*endptr != 'f' || *(endptr + 1) != '\0' || num < std::numeric_limits<float>::min() || num > std::numeric_limits<float>::max())
+    if (*endptr != 'f' || *(endptr + 1) != '\0' || num < std::numeric_limits<float>::min() ||
+        num > std::numeric_limits<float>::max())
         return false;
-    else
-    {
+    else {
         *value = num;
-        if (input.find('.') < input.length() && input.find('.') < 10)
-        {
+        if (input.find('.') < input.length() && input.find('.') < 10) {
             precision = input.length() - input.find('.') - 2;
             if (precision > 16)
                 precision = 16;
@@ -161,13 +158,11 @@ bool ScalarConverter::isFloat(const std::string &input, double *value)
     }
 }
 
-bool ScalarConverter::isPseudoLiteral(const std::string &input)
-{
-    return (input == "nan" || input == "+inf" || input == "-inf"
-        || input == "nanf" || input == "+inff" || input == "-inff");
+bool ScalarConverter::isPseudoLiteral(const std::string &input) {
+    return (input == "nan" || input == "+inf" || input == "-inf" || input == "nanf" || input == "+inff" ||
+            input == "-inff");
 }
 
-bool ScalarConverter::isDisplayableChar(double c) 
-{
+bool ScalarConverter::isDisplayableChar(double c) {
     return (c >= 32 && c <= 126);
 }
