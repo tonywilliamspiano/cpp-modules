@@ -6,7 +6,7 @@
 /*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 13:04:24 by tony              #+#    #+#             */
-/*   Updated: 2023/07/27 10:21:09 by tony             ###   ########.fr       */
+/*   Updated: 2024/10/02 12:10:57 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Base::~Base() {}
 
-Base* Base::generate() {
+Base *Base::generate() {
     Base *ret;
     int randomNumber;
 
@@ -27,11 +27,11 @@ Base* Base::generate() {
         ret = new B;
     else
         ret = new C;
-    
+
     return ret;
 }
 
-void Base::identify(Base* p) {
+void Base::identify(Base *p) {
     if (dynamic_cast<A*>(p))
         std::cout << "Pointer is of type A" << std::endl;
     else if (dynamic_cast<B*>(p))
@@ -42,7 +42,7 @@ void Base::identify(Base* p) {
         std::cout << "Something went wrong while identifying pointers..." << std::endl;
 }
 
-void Base::identify(Base& p) {
+void Base::identify(Base &p) {
     if (dynamic_cast<A*>(&p))
         std::cout << "Reference is of type A" << std::endl;
     else if (dynamic_cast<B*>(&p))

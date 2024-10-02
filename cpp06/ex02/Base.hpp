@@ -1,6 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/26 12:46:32 by awilliam          #+#    #+#             */
+/*   Updated: 2024/10/02 12:08:41 by awilliam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
 /*   Serializer.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
@@ -21,16 +33,21 @@ class B;
 class C;
 
 class Base {
-    public:
-        virtual ~Base();
+public:
+    virtual ~Base();
 
-        Base *generate(void);
-        void identify(Base *p);
-        void identify(Base &p);
+    Base *generate(void);
+    void identify(Base *p);
+    void identify(Base &p);
 };
 
-class A : public Base {};
-class B : public Base {};
-class C : public Base {};
+class A : public Base {
+};
+
+class B : public Base {
+};
+
+class C : public Base {
+};
 
 #endif

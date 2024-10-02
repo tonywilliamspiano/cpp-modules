@@ -6,12 +6,18 @@
 /*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 18:37:53 by tony              #+#    #+#             */
-/*   Updated: 2024/10/02 11:41:48 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:09:33 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <iostream>
+
+// TODO - Review code to make sure I fully understand
+//      - Review the differences between the types of casting in CPP
+//      - Test rigorously
+//      - Test against subject
+
 
 int main(int argc, char **argv) {
     if (argc != 2) {

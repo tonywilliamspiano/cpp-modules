@@ -6,19 +6,22 @@
 /*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 18:37:53 by tony              #+#    #+#             */
-/*   Updated: 2023/07/26 13:28:16 by tony             ###   ########.fr       */
+/*   Updated: 2024/10/02 11:51:46 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 #include <iostream>
 
-int main()
-{
-    Serializer  s;
+// TODO - Review code to make sure I fully understand
+//      - Test with valgrind for memory leaks
+//      - Test rigorously against subject
+
+int main() {
+    Serializer s;
     Data *data = new Data;
-    Data        *newData;
-    uintptr_t   dataSerialized;
+    Data *newData;
+    uintptr_t dataSerialized;
 
     data->clothingColor = "Blue";
     data->clothingType = "T-Shirt";

@@ -6,13 +6,9 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 19:06:05 by awilliam          #+#    #+#             */
-/*   Updated: 2024/10/02 11:51:02 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:08:19 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
-// TODO - Test rigorously
-//      - Test against subject
 
 #include "ScalarConverter.hpp"
 #include <iostream>
@@ -53,18 +49,18 @@ void ScalarConverter::convert(const std::string &input) {
 
 std::string ScalarConverter::getType(const std::string &input, double *value) {
     if (this->isPseudoLiteral(input))
-        return ("pseudo-literal");
+        return "pseudo-literal";
     if (this->isInteger(input, value))
-        return ("int");
+        return "int";
     if (input.length() == 1 && isDisplayableChar(input[0])) {
         *value = input[0];
-        return ("int");
+        return "int";
     }
     if (this->isFloat(input, value))
-        return ("double");
+        return "double";
     if (this->isDouble(input, value))
-        return ("double");
-    return ("not found");
+        return "double";
+    return "not found";
 }
 
 void ScalarConverter::printValues(std::string type, double value) {
@@ -94,12 +90,12 @@ void ScalarConverter::printValues(std::string type, double value) {
 
 double ScalarConverter::convertPseudo(const std::string &input) {
     if (input == "nan" || input == "nanf")
-        return (std::numeric_limits<double>::quiet_NaN());
+        return std::numeric_limits<double>::quiet_NaN();
     if (input == "-inf" || input == "-inff")
-        return (-std::numeric_limits<double>::infinity());
+        return -std::numeric_limits<double>::infinity();
     if (input == "+inf" || input == "+inff")
-        return (std::numeric_limits<double>::infinity());
-    return (0);
+        return std::numeric_limits<double>::infinity();
+    return 0;
 }
 
 // TYPE CHECKERS
@@ -162,10 +158,11 @@ bool ScalarConverter::isFloat(const std::string &input, double *value) {
 }
 
 bool ScalarConverter::isPseudoLiteral(const std::string &input) {
-    return (input == "nan" || input == "+inf" || input == "-inf" || input == "nanf" || input == "+inff" ||
-            input == "-inff");
+    return input == "nan" || input == "nanf" ||
+           input == "+inf" || input == "-inf" ||
+           input == "+inff" || input == "-inff";
 }
 
 bool ScalarConverter::isDisplayableChar(double c) {
-    return (c >= 32 && c <= 126);
+    return c >= 32 && c <= 126;
 }
