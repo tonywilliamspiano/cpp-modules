@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 09:50:43 by awilliam          #+#    #+#             */
-/*   Updated: 2024/10/23 15:55:11 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/11/02 19:47:15 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int main() {
         }
         std::cout << std::endl;
 
+        std::cout << "Size of intArrayCopy: " << intArrayCopy.size() << std::endl;
+
         // Test out-of-bounds access
         std::cout << "Testing out-of-bounds access: ";
         try {
@@ -76,11 +78,13 @@ int main() {
         }
 
         // Test copy constructor and assignment operator
-        Array<std::string> stringArrayCopy = stringArray;
+        Array<std::string> stringArrayCopy = Array<std::string>(stringArray);
+        Array<std::string> stringArrayCopy2 = stringArray;
 
         // Modify the original and copied arrays independently
         stringArray[0] = "OG ARRAY";
-        stringArrayCopy[0] = "COPY ARRAY";
+        stringArrayCopy[0] = "COPY ARRAY WITH CONSTRUCTOR";
+        stringArrayCopy2[0] = "COPY ARRAY WITH ASSIGNMENT";
 
         // Display elements of the arrays
         std::cout << "stringArray: ";
@@ -95,6 +99,12 @@ int main() {
         }
         std::cout << std::endl;
 
+        std::cout << "stringArray Copy2: ";
+        for (unsigned int i = 0; i < stringArrayCopy2.size(); ++i) {
+            std::cout << stringArrayCopy2[i] << " | ";
+        }
+        std::cout << std::endl;
+
         // Test out-of-bounds access
         std::cout << "Testing out-of-bounds access: ";
         try {
@@ -102,6 +112,8 @@ int main() {
         } catch (const std::exception &e) {
             std::cout << "Exception: " << e.what() << std::endl;
         }
+
+        std::cout << "Testing out of bounds for negative number: " << stringArray[-1] << std::endl;
 
     } catch (const std::exception &e) {
         std::cout << "Exception: " << e.what() << std::endl;

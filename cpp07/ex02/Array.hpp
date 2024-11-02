@@ -6,10 +6,9 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 09:54:04 by awilliam          #+#    #+#             */
-/*   Updated: 2024/10/23 15:55:02 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/11/02 19:25:22 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef ARRAY_H
 # define ARRAY_H
@@ -27,9 +26,9 @@ public:
 
     Array(unsigned int n) : _myArray(new T[n]), _size(n) {};
 
-    Array(const Array &oldInstance) : _myArray(new T[oldInstance.size()]), _size(oldInstance.size()) {
+    Array(const Array &rhs) : _myArray(new T[rhs.size()]), _size(rhs.size()) {
         for (unsigned int i = 0; i < this->_size; i++) {
-            this->_myArray[i] = oldInstance._myArray[i];
+            this->_myArray[i] = rhs._myArray[i];
         }
     };
 
@@ -37,12 +36,12 @@ public:
         delete[] this->_myArray;
     };
 
-    Array &operator=(const Array &oldInstance) {
-        if (this != &oldInstance) {
-            this->_size = oldInstance.size();
-            this->_myArray = new T[oldInstance.size()];
+    Array &operator=(const Array &rhs) {
+        if (this != &rhs) {
+            this->_size = rhs.size();
+            this->_myArray = new T[rhs.size()];
             for (unsigned int i = 0; i < this->_size; i++) {
-                this->_myArray[i] = oldInstance._myArray[i];
+                this->_myArray[i] = rhs._myArray[i];
             }
         }
         return (*this);
