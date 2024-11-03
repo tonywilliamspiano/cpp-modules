@@ -6,13 +6,14 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 09:50:43 by awilliam          #+#    #+#             */
-/*   Updated: 2024/11/03 11:09:10 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/11/03 11:27:57 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Array.hpp"
 
+//
 int main() {
     try {
         // Test with int data type
@@ -24,9 +25,9 @@ int main() {
         }
 
         // Test copy constructor and assignment operator
-        Array<int> intArrayCopy = intArray2; // Copy constructor
-        Array<int> intArrayCopy2;
-        intArrayCopy2 = intArray2; // Assignment operator
+        Array<int> intArrayCopy(intArray2);
+        Array<int> intArrayCopy2(10);
+        intArrayCopy2 = intArray2;
 
         // Modify the original and copied arrays independently
         intArray2[0] = 42;
