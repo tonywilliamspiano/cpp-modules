@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 10:54:27 by awilliam          #+#    #+#             */
-/*   Updated: 2024/11/03 11:51:36 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/11/03 11:53:17 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define EASYFIND_HPP
 
 # include <iostream>
-# include <stdexcept>
-# include <algorithm>
 
 template<typename T>
 typename T::value_type easyfind(const T &container, int value) {

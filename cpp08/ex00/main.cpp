@@ -6,16 +6,15 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 10:12:43 by awilliam          #+#    #+#             */
-/*   Updated: 2024/11/03 11:51:41 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/11/03 11:52:32 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include <vector>
 #include <list>
-#include <stdexcept>
 #include "easyfind.hpp"
 
+// TODO - understand code better, be able to explain containers and their differences
 int main() {
 
     // Test with int vector

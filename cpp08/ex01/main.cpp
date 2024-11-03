@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 11:38:23 by awilliam          #+#    #+#             */
-/*   Updated: 2024/11/03 12:05:07 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/11/03 12:06:16 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ int main() {
         sp.printNumbers();
         std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
         std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
-    } catch (const std::exception& e) {
+    } catch (const std::exception &e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
     try {
         std::vector<int> numbers(20000);
         std::srand(time(NULL));
-        std::generate( numbers.begin(), numbers.end(), std::rand );
+        std::generate(numbers.begin(), numbers.end(), std::rand);
 
         Span span(numbers.size());
 
@@ -60,7 +60,7 @@ int main() {
         std::cout << "Shortest span: " << span.shortestSpan() << std::endl;
         std::cout << "Longest span: " << span.longestSpan() << std::endl;
 
-    } catch (std::exception& e) {
+    } catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
 
