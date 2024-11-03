@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 09:50:43 by awilliam          #+#    #+#             */
-/*   Updated: 2024/11/02 19:47:15 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/11/03 11:09:10 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,10 @@ int main() {
         intArrayCopy[1] = 42;
         intArrayCopy2[2] = 42;
 
-        // Display elements of the arrays
-        std::cout << "intArray2: ";
-        for (unsigned int i = 0; i < intArray2.size(); ++i) {
-            std::cout << intArray2[i] << " ";
-        }
-        std::cout << std::endl;
-
-        std::cout << "intArrayCopy: ";
-        for (unsigned int i = 0; i < intArrayCopy.size(); ++i) {
-            std::cout << intArrayCopy[i] << " ";
-        }
-        std::cout << std::endl;
-
-        std::cout << "intArrayCopy2: ";
-        for (unsigned int i = 0; i < intArrayCopy2.size(); ++i) {
-            std::cout << intArrayCopy2[i] << " ";
-        }
-        std::cout << std::endl;
+        // Display arrays
+        std::cout << "intArray2: " << intArray2;
+        std::cout << "intArrayCopy: " << intArrayCopy;
+        std::cout << "intArrayCopy2: " << intArrayCopy2;
 
         std::cout << "Size of intArrayCopy: " << intArrayCopy.size() << std::endl;
 
@@ -86,24 +72,10 @@ int main() {
         stringArrayCopy[0] = "COPY ARRAY WITH CONSTRUCTOR";
         stringArrayCopy2[0] = "COPY ARRAY WITH ASSIGNMENT";
 
-        // Display elements of the arrays
-        std::cout << "stringArray: ";
-        for (unsigned int i = 0; i < stringArray.size(); ++i) {
-            std::cout << stringArray[i] << " | ";
-        }
-        std::cout << std::endl;
-
-        std::cout << "stringArray Copy: ";
-        for (unsigned int i = 0; i < stringArrayCopy.size(); ++i) {
-            std::cout << stringArrayCopy[i] << " | ";
-        }
-        std::cout << std::endl;
-
-        std::cout << "stringArray Copy2: ";
-        for (unsigned int i = 0; i < stringArrayCopy2.size(); ++i) {
-            std::cout << stringArrayCopy2[i] << " | ";
-        }
-        std::cout << std::endl;
+        // Display the arrays
+        std::cout << "stringArray: " << stringArray;
+        std::cout << "stringArray Copy: " << stringArrayCopy;
+        std::cout << "stringArray Copy2: " << stringArrayCopy2;
 
         // Test out-of-bounds access
         std::cout << "Testing out-of-bounds access: ";

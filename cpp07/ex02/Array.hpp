@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 09:54:04 by awilliam          #+#    #+#             */
-/*   Updated: 2024/11/02 19:25:22 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/11/03 11:07:31 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ public:
         return (*this);
     };
 
-    T &operator[](size_t index) {
+    T &operator[](size_t index) const {
         if (index >= this->_size) {
             throw OutOfBoundsException();
         }
@@ -63,5 +63,19 @@ public:
         virtual const char *what() const throw() { return "Index is out of bounds"; }
     };
 };
+
+template<typename T>
+std::ostream &operator<<(std::ostream &s, const Array<T> &arr) {
+    s << "[ ";
+
+    for (size_t i = 0; i < arr.size(); ++i) {
+        s << arr[i];
+        if (i != arr.size() - 1) {
+            s << ", ";
+        }
+    }
+    s << " ]" << std::endl;
+    return s;
+}
 
 #endif
