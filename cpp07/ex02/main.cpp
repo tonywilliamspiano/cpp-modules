@@ -6,22 +6,22 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 09:50:43 by awilliam          #+#    #+#             */
-/*   Updated: 2024/11/03 11:27:57 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/11/26 16:35:28 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Array.hpp"
 
-//
+// TODO - Check for memory leaks!
 int main() {
     try {
-        // Test with int data type
-        Array<int> intArray; // Default constructor, creates an empty array
-        Array<int> intArray2(5); // Creates an array of 5 elements initialized by default
+        // Testing with int data type
+        Array<int> intArray;
+        Array<int> intArray2(5);
 
         for (unsigned int i = 0; i < intArray2.size(); ++i) {
-            intArray2[i] = i * 10; // Setting values using the subscript operator
+            intArray2[i] = i * 10; // Set values using subscript operator
         }
 
         // Test copy constructor and assignment operator
@@ -29,7 +29,7 @@ int main() {
         Array<int> intArrayCopy2(10);
         intArrayCopy2 = intArray2;
 
-        // Modify the original and copied arrays independently
+        // Modify original and copied arrays independently
         intArray2[0] = 42;
         intArrayCopy[1] = 42;
         intArrayCopy2[2] = 42;
@@ -43,11 +43,8 @@ int main() {
 
         // Test out-of-bounds access
         std::cout << "Testing out-of-bounds access: ";
-        try {
-            std::cout << intArray[0] << std::endl; // Should throw an exception
-        } catch (const std::exception &e) {
-            std::cout << "Exception: " << e.what() << std::endl;
-        }
+        std::cout << intArray[0] << std::endl; // Should throw an exception
+        std::cout << "If I get printed, something is very wrong :o" << std::endl;
 
     } catch (const std::exception &e) {
         std::cout << "Exception: " << e.what() << std::endl;
@@ -87,6 +84,8 @@ int main() {
         }
 
         std::cout << "Testing out of bounds for negative number: " << stringArray[-1] << std::endl;
+        std::cout << stringArray[-1] << std::endl; // Should throw an exception
+        std::cout << "If I get printed, something is very wrong :o" << std::endl;
 
     } catch (const std::exception &e) {
         std::cout << "Exception: " << e.what() << std::endl;
