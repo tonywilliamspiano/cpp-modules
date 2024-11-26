@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 12:40:23 by awilliam          #+#    #+#             */
-/*   Updated: 2024/11/03 12:15:42 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/11/26 16:14:40 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,12 @@
 template<typename T>
 class MutantStack : public std::stack<T> {
 public:
-    MutantStack() : std::stack<T>() {};
+    MutantStack() : std::stack<T>() {
+        // Because it's interesting:
+//        std::cout << "Using container type: "
+//                  << typeid(typename std::stack<T>::container_type).name()
+//                  << std::endl;
+    };
 
     ~MutantStack() {};
 

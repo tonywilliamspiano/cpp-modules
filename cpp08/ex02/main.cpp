@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 12:51:11 by awilliam          #+#    #+#             */
-/*   Updated: 2024/11/26 16:09:07 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/11/26 16:20:54 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,20 @@ int main() {
     }
     std::cout << std::endl;
     std::cout << mlist.size() << std::endl << std::endl;
+
+    // Interesting and fun code: Checkout the types of different stacks
+    MutantStack<float> floatStack;
+    MutantStack<bool> boolStack;
+    MutantStack<double> doubleStack;
+
+    // Why does the stack iterator work?
+    // TODO
+//    std::stack<int> myStack;
+//
+//    myStack.push(1);
+//    myStack.push(2);
+//    myStack.push(3);
+//
+//    std::cout << myStack.
+
 }
