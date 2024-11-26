@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:02:07 by awilliam          #+#    #+#             */
-/*   Updated: 2024/10/23 16:16:56 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/11/26 16:30:24 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,40 +41,40 @@ int main() {
     char charArray[] = {'a', 'b', 'c', 'd', 'e', 0};
 
     std::cout << "Printing all elements of an intArray: ";
-    iter(intArray, 5, printElement<int>);
+    iter(intArray, 5, printElement);
     printSeparation();
 
     std::cout << "Printing all elements of a doubleArray: ";
-    iter(doubleArray, 5, printElement<double>);
+    iter(doubleArray, 5, printElement);
     printSeparation();
 
     std::cout << "Printing all elements of a charArray: ";
-    iter(charArray, 5, printElement<char>);
+    iter(charArray, 5, printElement);
     printSeparation();
 
     std::cout << "Adding 5 to all arrays... ";
-    iter(intArray, 5, addFive<int>);
-    iter(doubleArray, 5, addFive<double>);
-    iter(charArray, 6, addFive<char>);
+    iter(intArray, 5, addFive);
+    iter(doubleArray, 5, addFive);
+    iter(charArray, 6, addFive);
     printSeparation();
 
     // Using iter with the printElement function template
     std::cout << "intArray plus 5: ";
-    iter(intArray, 5, printElement<int>);
+    iter(intArray, 5, printElement);
     std::cout << std::endl;
     printSeparation();
 
     std::cout << "doubleArray plus 5: ";
-    iter(doubleArray, 5, printElement<double>);
+    iter(doubleArray, 5, printElement);
     std::cout << std::endl;
     printSeparation();
 
     std::cout << "charArray plus 5: ";
-    iter(charArray, 5, printElement<char>);
+    iter(charArray, 5, printElement);
     std::cout << std::endl;
     printSeparation();
 
-//    =============================================================
+////    =============================================================
 //    Shirt shirtArray[] = {
 //            Shirt("red", "M"),
 //            Shirt("blue", "L"),
@@ -84,7 +84,7 @@ int main() {
 //    };
 //
 //    std::cout << "Array of shirt objects: ";
-//    iter(shirtArray, 5, printElement<Shirt>);
+//    iter(shirtArray, 5, printElement);
 //    std::cout << std::endl;
 
     return 0;
