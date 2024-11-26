@@ -61,7 +61,7 @@ const char *Array<T>::OutOfBoundsException::what() const throw() {
 
 template<typename T>
 std::ostream &operator<<(std::ostream &s, const Array<T> &arr) {
-    s << "[ ";
+    s << "[";
 
     for (size_t i = 0; i < arr.size(); ++i) {
         s << arr[i];
@@ -69,6 +69,6 @@ std::ostream &operator<<(std::ostream &s, const Array<T> &arr) {
             s << ", ";
         }
     }
-    s << " ]" << std::endl;
+    s << "]" << std::endl;
     return s;
 }

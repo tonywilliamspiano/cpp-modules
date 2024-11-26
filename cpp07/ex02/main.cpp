@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 09:50:43 by awilliam          #+#    #+#             */
-/*   Updated: 2024/11/26 16:35:28 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/11/26 16:39:41 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ int main() {
         // Testing with int data type
         Array<int> intArray;
         Array<int> intArray2(5);
+
+        std::cout << intArray;
+        std::cout << intArray2;
 
         for (unsigned int i = 0; i < intArray2.size(); ++i) {
             intArray2[i] = i * 10; // Set values using subscript operator
