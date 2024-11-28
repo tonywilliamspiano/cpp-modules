@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 11:38:23 by awilliam          #+#    #+#             */
-/*   Updated: 2024/11/28 16:43:09 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/11/28 16:52:40 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,17 @@ int main() {
         sp.printNumbers();
         std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
         std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
+
+        // Test copy and assignment:
+        Span sp2(sp);
+        Span sp3 = sp;
+        std::cout << "OG Span: ";
+        sp.printNumbers();
+        std::cout << "#2 Span: ";
+        sp2.printNumbers();
+        std::cout << "#3 Span: ";
+        sp3.printNumbers();
+
 
         // Test the exception:
         sp.addNumber(3);
