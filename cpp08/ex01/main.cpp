@@ -6,12 +6,14 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 11:38:23 by awilliam          #+#    #+#             */
-/*   Updated: 2024/11/03 12:06:16 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/11/28 16:43:09 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <list>
 
+// TODO - Also test copy constructor and assignment operator
 int main() {
     try {
         Span sp(5); // Create a Span with a capacity of 5 integers
@@ -40,13 +42,16 @@ int main() {
         sp.printNumbers();
         std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
         std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
+
+        // Test the exception:
+        sp.addNumber(3);
     } catch (const std::exception &e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
     try {
-        std::vector<int> numbers(20000);
-        std::srand(time(NULL));
+        std::list<int> numbers(20000);
+        std::srand(static_cast<unsigned>(time(nullptr)));
         std::generate(numbers.begin(), numbers.end(), std::rand);
 
         Span span(numbers.size());

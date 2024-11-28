@@ -6,7 +6,7 @@
 /*   By: awilliam <awilliam@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 10:12:43 by awilliam          #+#    #+#             */
-/*   Updated: 2024/11/03 11:52:32 by awilliam         ###   ########.fr       */
+/*   Updated: 2024/11/28 16:34:05 by awilliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <list>
 #include "easyfind.hpp"
 
-// TODO - understand code better, be able to explain containers and their differences
 int main() {
 
     // Test with int vector
@@ -40,7 +39,7 @@ int main() {
         std::cout << e.what() << std::endl;
     }
 
-    // Test with float vector
+    // Test with float vector, just for fun
     std::vector<float> floatVec;
     floatVec.push_back(1.3f);
     floatVec.push_back(2.5f);
@@ -49,7 +48,7 @@ int main() {
     floatVec.push_back(1.0f);
 
     try {
-        float result = easyfind(floatVec, 1); // Should find the float 1.0f
+        float result = easyfind(floatVec, 3); // Should find the float 1.0f
         std::cout << "Value found: " << result << std::endl;
     } catch (const std::runtime_error &e) {
         std::cout << e.what() << std::endl;
